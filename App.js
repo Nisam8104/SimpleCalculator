@@ -2,94 +2,64 @@ import React, {useState} from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
 const App = () => {
-  const [subhanallah, setSubhanallah] = useState(0);
-  const [alhamdulillah, setAlhamdulillah] = useState(0);
-  const [allahuakbar, setAllahuakbar] = useState(0);
-
+  const onButtonClick = (text) => {console.log(text)
+  }
   return (
     <View style={styles.container}>
-      <View>
-        <View style={styles.subhanallahboxStyle}>
-          <Text>{subhanallah}</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => {
-            if (subhanallah == 32) {
-              setSubhanallah('33 Subhanallaha Completed');
-            } else if (subhanallah == '33 Subhanallaha Completed') {
-            } else {
-              setSubhanallah(subhanallah + 1);
-            }
-          }}>
-          <View style={styles.subhanallatextStyle}>
-            <Text>subhanallah</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setSubhanallah(0);
-          }}>
-          <View style={styles.resettextStyle}>
-            <Text>Reset</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.result}>
+        <Text style={styles.resultText}>100</Text>
       </View>
-
-      <View>
-        <View style={styles.alhamdulillahboxStyle}>
-          <Text>{alhamdulillah}</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => {
-            if (alhamdulillah == 32) {
-              setAlhamdulillah('33 alhamdulillah Completed');
-            } else if (alhamdulillah == '33 alhamdulillah Completed') {
-            } else {
-              setAlhamdulillah(alhamdulillah + 1);
-            }
-          }}>
-          <View style={styles.alhamdulillahStyle}>
-            <Text>alhamdulillah</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setAlhamdulillah(0);
-          }}>
-          <View style={styles.resettextStyle}>
-            <Text>Reset</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.calculation}>
+        <Text style={styles.calcilationText}>50+50</Text>
       </View>
-
-      <View>
-        <View style={styles.allahuakbarboxStyle}>
-          <Text>{allahuakbar}</Text>
+      <View style={styles.button}>
+        <View style={styles.numbers}>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={()=>{onButtonClick(1)}}>
+              <Text style={styles.number}>1</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(2)}}>
+              <Text style={styles.number}>2</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(3)}}>
+              <Text style={styles.number}>3</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={()=>{onButtonClick(4)}}>
+              <Text style={styles.number}>4</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(5)}}>
+              <Text style={styles.number}>5</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(6)}}>
+              <Text style={styles.number}>6</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={()=>{onButtonClick(7)}}>
+              <Text style={styles.number}>7</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(8)}}>
+              <Text style={styles.number}>8</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(9)}}>
+              <Text style={styles.number}>9</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={()=>{onButtonClick(".")}}>
+              <Text style={styles.number}>.</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick(0)}}>
+              <Text style={styles.number}>0</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{onButtonClick("=")}}>
+              <Text style={styles.number}>=</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            if (allahuakbar == 32) {
-              setAllahuakbar('33 allahuakbar Completed');
-            } else if (allahuakbar == '33 allahuakbar Completed') {
-            } else {
-              setAllahuakbar(allahuakbar + 1);
-            }
-          }}>
-          <View style={styles.allahuakbarStyle}>
-            <Text>allahuakbar</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setAllahuakbar(0);
-          }}>
-          <View style={styles.resettextStyle}>
-            <Text>Reset</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.operations}></View>
       </View>
     </View>
   );
@@ -97,261 +67,51 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    justifyContent: 'space-between',
-
-    backgroundColor: 'white',
     flex: 1,
   },
-
-  subhanallatextStyle: {
-    backgroundColor: 'skyblue',
-    width: 300,
-    height: 45,
-    fontSize: 100,
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginBottom: 10,
-    marginLeft: 25,
+  result: {
+    backgroundColor: 'grey',
+    flex: 2,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
-
-  alhamdulillahStyle: {
-    backgroundColor: 'skyblue',
-    width: 300,
-    height: 45,
-    fontSize: 100,
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginBottom: 10,
-    marginLeft: 25,
-  },
-  allahuakbarStyle: {
-    backgroundColor: 'skyblue',
-    width: 300,
-    height: 45,
-    fontSize: 100,
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginBottom: 10,
-    marginLeft: 25,
-  },
-
-  resettextStyle: {
-    backgroundColor: 'yellow',
-    width: 300,
-    height: 45,
-    fontSize: 100,
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginBottom: 50,
-    marginLeft: 25,
-  },
-
-  subhanallahboxStyle: {
-    width: 300,
-    height: 45,
+  calculation: {
+    flex: 1,
     backgroundColor: 'red',
-    fontSize: 20,
-    alignItems: 'center',
-    paddingVertical: 5,
-    marginTop: 150,
-    marginBottom: 10,
-    marginLeft: 25,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
-
-  alhamdulillahboxStyle: {
-    width: 300,
-    height: 45,
-    backgroundColor: 'red',
-    fontSize: 20,
-    alignItems: 'center',
-    paddingVertical: 5,
-    marginBottom: 10,
-    marginTop: -30,
-    marginLeft: 25,
+  button: {
+    flex: 7,
+    flexDirection: 'row',
   },
-  allahuakbarboxStyle: {
-    width: 300,
-    height: 45,
-    backgroundColor: 'red',
+  numbers: {
+    flex: 3,
+    backgroundColor: 'blue',
+  },
+  operations: {
+    flex: 1,
+    borderStartColor: 'green',
+  },
+  resultText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  calcilationText: {
     fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    paddingVertical: 5,
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 25,
+  },
+  number: {
+    fontSize: 30,
+    color: 'white',
   },
 });
-
 export default App;
-
-// const App = () => {
-// const [buttonColors,setButtonColors]=useState('red');
-// // var buttonColors = 'red';
-
-// return(
-
-// <Button title='Green' color={buttonColors} onPress={()=> {
-//   console.log('Nisam',buttonColors);
-//   if(buttonColors == 'red') {
-
-//     setButtonColors('green');
-//   } else if (buttonColors == 'green'){
-//     setButtonColors('yellow');
-//   } else if (buttonColors == 'yellow'){
-//     setButtonColors('red');
-//   }
-
-// } }></Button>
-// )
-// };
-
-// export default App;
-
-// const App = () => {
-
-//  return (
-//  <View style={styles.container}>
-
-// {/* <Button title='Nisamkjnjknjknl' color='red'
-//  onPress={()=>alert("poda")} >
-
-// </Button>
-
-// <Button title='Yasi  ghghfyjgghfgjhg' color='red'
-//  onPress={()=>alert("povoola")} >
-
-// </Button>   */}
-
-//   <TouchableOpacity onPress={() => {
-//     console.log('Nisam tapped');
-//   }}
-//   style={ styles.buttoncontainer}
-//  >
-
-//  <Text style={styles.buttontext}>Nisam </Text>
-
-//  </TouchableOpacity>
-
-//  <TouchableOpacity onPress={() => {
-//     console.log('yasi tapped');
-//   }}
-//   style={ styles.buttoncontainer2}
-//  >
-
-//  <Text style={styles.buttontext2}>Yasi </Text>
-
-//  </TouchableOpacity>
-
-//  <TouchableOpacity onPress={() => {
-//     console.log('Davood tapped');
-//   }}
-//   style={ styles.buttoncontainer3}
-//  >
-
-//  <Text style={styles.buttontext3}>Davood </Text>
-
-//  </TouchableOpacity>
-
-//  <TouchableOpacity onPress={() => {
-//     console.log('Arun tapped');
-//   }}
-//   style={ styles.buttoncontainer4}
-//  >
-
-//  <Text style={styles.buttontext4}>Arun </Text>
-
-//  </TouchableOpacity>
-
-//  </View>
-
-//   );
-// };
-
-// //  <Button title='click me' color='red'
-// //  onPress={()=>alert("poda")} disabled={false}>
-
-// // </Button>
-
-// const styles = StyleSheet.create({
-//   container: {
-
-//         marginTop:150,
-//         paddingLeft: 20,
-//         paddingRight: 20,
-//         justifyContent: 'space-between',
-//         flexDirection: 'column',
-//         marginHorizontal: 10,
-
-//   },
-
-//   //       backgroundColor:'red',
-
-//   buttoncontainer: {
-
-//     backgroundColor: '#5d57ff',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     marginHorizontal: 40,
-//     height:40,
-//     borderRadius:8,
-//     marginVertical: 0,
-
-//    },
-//   // buttontext: {
-//   //   textTransform: 'uppercase',
-//   //   color: '#fff',
-//   //   fontSize: 30,
-
-//   // },
-
-//     buttoncontainer2: {
-
-//       backgroundColor: '#5d57ff',
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       borderRadius: 8,
-//       marginHorizontal: 40,
-//       marginVertical: 30,
-//       height: 40,
-
-//      },
-//     // buttontext2: {
-//     //   textTransform: 'uppercase',
-//     //   color: '#fff',
-//     //   fontSize: 30,
-
-//     // },
-
-//     buttoncontainer3: {
-
-//       backgroundColor: '#5d57ff',
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       borderRadius: 8,
-//       marginHorizontal: 40,
-//       marginVertical: 30,
-//       height: 40,
-
-//      },
-
-//      buttoncontainer4: {
-
-//       backgroundColor: '#5d57ff',
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       borderRadius: 8,
-//       marginHorizontal: 40,
-//       marginVertical: 30,
-//       height: 40,
-
-//      },
-
-// });
-
-// export default App;
